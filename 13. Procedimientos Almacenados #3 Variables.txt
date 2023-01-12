@@ -1,0 +1,25 @@
+create table tabla1( 
+   titulo varchar2(40),
+   precio number(6,2)
+  );
+  
+select * from libros;  
+/* creacion del procedimiento*/
+
+create or replace procedure autorlibro(atitulo in varchar2)
+ as
+   v_autor varchar2(20);
+ begin
+ -- Seteamos la variable v_autor
+  select autori into v_autor from libros where titulo=atitulo;
+  
+  insert into tabla1
+   select titulo,precio
+   from libros
+   where autori=v_autor;
+ end autorlibro;
+ 
+ execute autorlibro('Elquijote');
+ 
+ select * from libros;  
+ select * from tabla1;

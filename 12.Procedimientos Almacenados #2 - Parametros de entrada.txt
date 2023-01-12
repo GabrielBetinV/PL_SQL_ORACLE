@@ -1,0 +1,43 @@
+select * from empleados;
+
+-- Procedimiento para aumentar el sueldo
+
+create or replace procedure sp_aumentar_sueldo(
+anio in number,
+porcentaje in number)
+as
+  begin
+  update empleados set sueldo = sueldo * (1 + (porcentaje / 100))
+  where (extract(year from current_date) - extract(year from fechaingreso)) > anio;
+end sp_aumentar_sueldo; 
+
+select * from empleados;
+exec sp_aumentar_sueldo(10,20);
+select * from empleados;
+
+-- Procedimiento para ingresar nuevo empleado
+create or replace procedure sp_ingresar_empleado(
+P_NOMBRE IN	VARCHAR2,
+P_DOCUMENTO	IN CHAR,
+P_DOMICILIO	IN VARCHAR2,
+P_SECCION	IN VARCHAR2,
+P_SUELDO	IN NUMBER,
+P_CANTIDADHIJOS	IN NUMBER,
+P_FECHAINGRESO	IN DATE)
+as
+  begin
+  insert into empleados values(
+    P_NOMBRE,
+    P_DOCUMENTO,
+    P_DOMICILIO,
+    P_SECCION,
+    P_SUELDO,
+    P_CANTIDADHIJOS,
+    P_FECHAINGRESO );
+  
+  end sp_ingresar_empleado; 
+  
+  select * from empleados;
+  
+  exec sp_ingresar_empleado('Gabriel Betin','11111','Kra 100','Sistemas',4200, 5,current_date);
+  select * from empleados;

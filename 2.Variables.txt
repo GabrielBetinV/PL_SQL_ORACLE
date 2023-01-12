@@ -1,0 +1,24 @@
+set serveroutput on; => para imprimir en
+pantalla
+
+DECLARE
+
+identificador integer := 50;
+nombre varchar2(25) := 'Gabriel Betin';
+apodo char(20) := 'gabo';
+sueldo number(5) := 30000;
+comision decimal(4,2) := 50.20;
+fecha_actual date := (sysdate);
+fecha date := to_date('2022/07/10' , 'yyyy/mm/dd');
+
+BEGIN
+
+dbms_output.put_line('El valor de la variable identificador es: ' || identificador);
+dbms_output.put_line('El valor de la variable nombre es: ' || nombre );
+dbms_output.put_line('El valor de la variable apodo es: ' || apodo );
+dbms_output.put_line('El valor de la variable sueldo es: ' || sueldo );
+dbms_output.put_line('El valor de la variable comision es: ' || comision );
+dbms_output.put_line('El valor de la variable fecha_actual es: ' || fecha_actual );
+dbms_output.put_line('El valor de la variable fecha es: ' || fecha );
+
+END;

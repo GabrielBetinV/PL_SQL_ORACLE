@@ -1,0 +1,117 @@
+1. lOOPS  BASICO
+
+ loop
+ 
+  secuencia de instrucciones;
+
+ fin del loop;	
+
+
+
+
+
+
+2. WHILE LOOP
+
+ while condicion loop
+
+ secuencia de instrucciones;
+
+ fin del loop;	
+
+
+ejemplo
+set serveroutout on;
+
+DECLARE
+
+valor number := 10;
+
+BEGIN
+loop
+ dbms_output.put_line(valor);
+ valor:= valor + 10;
+
+ if valor > 50 then
+ exit
+ end if; 
+end loop;
+
+ dbms_output.put_line(' Valor final: ' || valor);
+
+END;
+
+
+3. FOR
+
+
+for contador in  valor1..valor2 loop
+
+secuencia de instrucciones;
+
+fin del loop;	
+
+
+4. Loops anidados
+
+
+loop principal
+
+ 1ra secuencia de instrucciones;
+
+ loop anidado
+
+    2da secuencia de instrucciones;
+
+ fin loop anidado;
+
+fin loop principal;
+
+
+EJEMPLO 1
+
+ejemplo
+set serveroutout on;
+
+DECLARE
+
+valor number := 10;
+
+BEGIN
+loop
+ dbms_output.put_line(valor);
+ valor:= valor + 10;
+
+ if valor > 50 then
+ exit
+ end if; 
+end loop;
+
+ dbms_output.put_line(' Valor final: ' || valor);
+
+END;
+
+
+TAMBIEN SE PUEDE ASI
+
+ejemplo
+set serveroutout on;
+
+DECLARE
+
+valor number := 10;
+
+BEGIN
+loop
+ dbms_output.put_line(valor);
+ valor:= valor + 10;
+ exit when valor > 10;
+end loop;
+
+ dbms_output.put_line(' Valor final: ' || valor);
+
+END;
+
+ 
+
+	

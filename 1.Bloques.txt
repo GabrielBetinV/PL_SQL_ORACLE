@@ -1,0 +1,42 @@
+
+Es en donde se ejecutara el codigo 
+
+
+Tienen 4 partes
+
+
+DECLARE
+
+--Declarar las variables
+
+BEGIN
+
+-- Codigo a ajecutar
+
+
+EXCEPTION
+
+-- Manejo de errores
+
+END 
+
+Tipos de bloques
+
+1. Bloques anonimos
+- No tienen nombre
+- se contruyen dinamicamente y se ejecuta una sola vez
+
+2. Bloques con nombres
+
+- Si tienen nombre
+- se contruyen dinamicamente y se ejecuta una sola vez
+
+
+3. Disparadores (Triggers)
+
+- Se ejecutan varias veces
+- Tienen nombre
+- No cambian despues de su construccion a d
+diferencia de las anteriores
+
+

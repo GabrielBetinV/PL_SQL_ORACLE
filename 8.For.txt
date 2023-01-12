@@ -1,0 +1,47 @@
+EJEMPLO #1
+
+set serveroutput on;
+
+declare
+
+numero number(2);
+begin
+
+ for numero in 10..20 loop
+
+    dbms_output.put_line('Valor de numero' || numero);
+
+  end loop;
+
+end;
+
+
+EJEMPLO IN REVERSE
+
+devuelve los valores del 5 al 0
+
+set serveroutput on;
+
+begin
+
+ for  f in reverse 0..5 loop
+
+    dbms_output.put_line('Valor de f =  ' || f);
+
+  end loop;
+
+end;
+
+EJEMPLO 3 Multiplicacion de la tabla del 2
+
+set serveroutput on;
+
+begin
+
+ for  f in  1..10 loop
+
+    dbms_output.put_line('2 x  ' || f  || ' = ' || (f*2));
+
+  end loop;
+
+end;

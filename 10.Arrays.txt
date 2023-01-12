@@ -1,0 +1,45 @@
+EJEMPLO # 1
+
+set serveroutput on;
+
+declare
+
+    type a_paises  is varray(5) of varchar2(20); /*Creamos el tipo de datos array*/
+    nombre a_paises; /*Declaramos la variable  nombre que es de tipo a_paises*/
+    
+begin
+    /*Llenamos el array*/
+    nombre := a_paises('Argentina', 'Colombia', 'Brasil', 'Peru', 'Rep. Dominicana');
+    
+    for x in 1..5 loop
+        dbms_output.put_line('Nombre = ' || nombre(x));
+     end loop;    
+end;
+
+
+EJEMPLO # 2
+
+
+set serveroutput on;
+
+declare
+
+    type matriz_nombres is varray(5) of varchar2(20); /*Creamos el tipo de datos array*/
+    type matriz_edad is varray(5) of integer; /*Creamos el tipo de datos array*/
+    
+    /*Variables*/
+    nombres matriz_nombres; 
+    edad matriz_edad;
+    total integer;
+    
+begin
+    /*Llenamos el array*/
+    nombres := matriz_nombres('Gabriel', 'Stefany', 'Angel', 'Samuel', 'Genis');
+    edad := matriz_edad(32,33,7,1,62);
+    total := nombres.count;
+    
+    for x in 1..total loop
+        dbms_output.put_line('Nombre = ' || nombres(x) || 'Edad = ' || edad(x));
+     end loop;    
+end;
+

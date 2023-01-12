@@ -1,0 +1,17 @@
+select * from empleados;
+
+select * from control;
+
+truncate table control;
+
+
+
+select trigger_name, triggering_event, table_name, status
+from user_triggers
+where table_name = 'EMPLEADOS';
+
+-- DESHABILITAR TRIGGERS
+alter trigger tr_aumentar_sueldo disable;
+
+-- HABILITAR TRIGGERS
+alter trigger tr_aumentar_sueldo enable;

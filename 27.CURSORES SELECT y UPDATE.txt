@@ -1,0 +1,28 @@
+set serveroutput on;
+
+-- CURSOR PARA RECORRER UNA TABLA Y MOSTRAR DATOS
+declare
+    v_empleados empleados%rowtype;
+    
+    begin
+        for v_empleados in (select * from empleados) loop
+        
+        dbms_output.put_line(  v_empleados.nombre ||' ' ||  v_empleados.sueldo);
+        end loop;
+    end;
+
+-- CURSOR PARA RECORRER UNA TABLA Y ACTUALIZAR DATOS
+
+set serveroutput on;
+   
+    begin    
+      update empleados set sueldo = 10000
+      where documento = '2333331111133';
+      
+      if sql%notfound then         
+        dbms_output.put_line('NO EXISTE UN REGISTRO PARA MODIFICAR'); 
+                        
+      elsif sql%found then       
+         dbms_output.put_line('REGISTRO MODIFICADO SATISFACTORIAMENTE'); 
+      end if; 
+    end;

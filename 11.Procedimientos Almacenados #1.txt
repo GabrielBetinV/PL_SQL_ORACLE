@@ -1,0 +1,62 @@
+TIPOS
+
+1. A nivel de esquema
+2. Dentro de un paquete
+3. Dentro de un bloque de PL/SQ
+
+PARTES
+
+1. PArte declarativa
+2. Parte ejecutable
+3. Exception
+
+EJEMPLO #1
+
+create or replace procedure saludo
+as
+    begin
+    
+        dbms_output.put_line('Hola a todos');
+        
+    end saludo;
+
+--Se ejecuta asi => 
+set serveroutput on;
+EXECUTE saludo;
+
+--o asi tambien =>   
+begin
+   saludo;
+end;
+
+EJEMPLO #2
+
+
+-- Procedimiento almacenado para aumentar precio
+select * from libros;
+
+create or replace procedure aumenta_precio
+as
+    begin
+      update libros set precio = precio * 1.10;
+      dbms_output.put_line('Precios aumentados correctamente');
+end aumenta_precio;
+
+-- Ejecutamos el procedimiento
+select * from libros;
+exec aumenta_precio;
+select * from libros;
+
+-- CONSULTAR LOS PROCEDIMIENTOS ALMACENADOS EN LA BASE DE DATOS
+select * from user_objects
+where object_type = 'PROCEDURE';
+
+-- O POR EL NOMBRE
+select * from user_procedures
+where object_name like '%PRECIO%';
+
+-- ELIMINAR PROCEDIMIENTOS ALMACENADOS
+
+drop procedure saludo;
+
+    

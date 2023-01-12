@@ -1,0 +1,15 @@
+
+
+set serveroutput on;
+DECLARE
+
+mensaje constant varchar2(30) := 'Buenos dias a todos';
+numero constant number(6) := 3000;
+
+BEGIN 
+
+
+mensaje := 'Adios a todos'; => Esto no cambiara el valor del mensaje porque es una constante
+dbms_output.put_line(mensaje);
+
+END;

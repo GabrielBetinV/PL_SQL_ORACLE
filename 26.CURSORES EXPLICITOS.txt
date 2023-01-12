@@ -1,0 +1,37 @@
+-- CURSOR EXPLICITO
+
+Es declarado y manipulado por el programador
+
+- DELCARE, se declara el cursor y la consulta
+- OPEN, SE ABRE EL CURSOR
+- FETCH, Donde se recuperan las filas recuperadas
+- EMPTY, Evaluacion de la consulta
+- CLOSE, SE CIERRA LA CONSULTA
+
+
+set serveroutput on;
+
+declare 
+  
+    v_documento empleados.documento%type;
+    v_nombre empleados.nombre%type;
+    v_apellido empleados.apellido%type;
+    v_sueldo empleados.sueldo%type;
+    
+    cursor cursor_explicito is
+        select documento, nombre, apellido, sueldo
+        from empleados where documento = '22222222';
+        
+        
+    begin
+    open cursor_explicito;
+    fetch cursor_explicito into v_documento, v_nombre, v_apellido, v_sueldo;
+    close cursor_explicito;
+    
+    dbms_output.put_line('Documento: ' || v_documento);
+    dbms_output.put_line('Nombre: ' || v_nombre);
+    dbms_output.put_line('Apellido: ' || v_apellido);
+    dbms_output.put_line('Sueldo: ' || v_sueldo);
+end;    
+    
+

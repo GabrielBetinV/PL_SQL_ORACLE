@@ -1,0 +1,157 @@
+1. Variables que almacenan string "Texto"
+
+set serveroutput on;
+
+declare
+nombre varchar2(20);
+direccion varchar2(30);
+detalles clob;
+eleccion char(1);
+
+
+begin
+
+nombre:= 'Gabriel Betin';
+direccion := 'Kra 6 a sur 48g 62';
+detalles := 'Este es el detalle clob que iniciamos en la 
+seccion declarativa, es una variable de gran almacenamiento';
+eleccion:= 'y';
+
+if eleccion = 'y' THEN
+
+dbms_output.put_line(nombre);
+dbms_output.put_line(direccion);
+dbms_output.put_line(detalles);
+dbms_output.put_line(eleccion);
+end if;
+
+end;
+
+
+2. Funciones basicas de string
+
+UPPER=> Convierte todo en mayuscula
+
+set serveroutput on;
+
+declare
+saludo varchar2(12) := 'Hola a todos';
+
+begin
+
+dbms_output.put_line(UPPER(saludo));
+
+end;
+
+LOWER => Convierte en minuscula
+
+set serveroutput on;
+
+declare
+saludo varchar2(12) := 'HOLA A TODOS';
+
+begin
+
+dbms_output.put_line(LOWER(saludo));
+
+end;
+
+INITCAP => Devuelve capitalizado
+
+set serveroutput on;
+
+declare
+saludo varchar2(12) := 'hola a todos';
+
+begin
+
+dbms_output.put_line(INITCAP(saludo));
+
+end;
+
+
+SUBSTR => Extrae caracteres de una palabra 
+
+set serveroutput on;
+
+declare
+saludo varchar2(12) := 'hola a todos';
+
+begin
+
+dbms_output.put_line(SUBSTR(saludo,5,6));
+
+end;
+
+
+De esta manera trae todo a partir del caracter que se le indique
+
+set serveroutput on;
+
+declare
+saludo varchar2(12) := 'hola a todos';
+
+begin
+
+dbms_output.put_line(SUBSTR(saludo,2));
+
+end;
+
+INSTR => Informa en que posicion esta una letra
+
+set serveroutput on;
+
+declare
+saludo varchar2(12) := 'hola a todos';
+
+begin
+
+dbms_output.put_line(INSTR(saludo,'h'));
+
+end;
+
+RTRIM => Elimina el los caracteres del lado derecho del texto
+
+set serveroutput on;
+
+declare
+saludo varchar2(30) := '####Hola a todos ####';
+
+begin
+
+dbms_output.put_line(RTRIM(saludo, '#'));
+
+end;
+
+LTRIM => Borra lo que esta en la izquierda
+
+set serveroutput on;
+
+declare
+saludo varchar2(30) := '####Hola a todos ####';
+
+begin
+
+dbms_output.put_line(LTRIM(saludo, '#'));
+
+end;
+
+
+TRIM => Elimina todos los caracteres o especios del texto
+
+set serveroutput on;
+
+declare
+saludo varchar2(30) := '####Hola a todos ####';
+
+begin
+
+dbms_output.put_line(TRIM('#' from saludo));
+
+end;
+
+
+
+
+
+

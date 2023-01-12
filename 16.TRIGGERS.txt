@@ -1,0 +1,64 @@
+(Disparador)Bloque de codigo que se ejecuta automaticamente
+
+- No pueden ser invocados directamente
+- Al intentar modificar los datos de una tabla asociada, se ejecuta autom
+- No reciben ni retornan parametros
+- No generan resultados de consultas
+
+CLASIFICACION
+
+1. EL MOMENTO EN QUE SE DISPARAN 
+
+BEFORE  => Antes de la sentencia
+AFTER   => Despues de la sentencia
+
+
+2. EL EVENTO QUE LOS DISPARA
+
+INSERT, UPDATE O DELETE
+
+3. NIVEL DE SENTENCIAS
+
+se ejecuta independientemente por sentencia, no importanto las filas que se afecten
+
+
+ --borrar tablas (si existen)
+ drop table libros;
+ drop table control;
+
+ --crear tablas
+ create table libros(
+  codigo number(6),
+  titulo varchar2(40),
+  autor varchar2(30),
+  editorial varchar2(20),
+  precio number(6,2)
+ );
+ create table control(
+  usuario varchar2(30),
+  fecha date
+ );
+ 
+ -- CREACION DEL  TRIGGER
+ create or replace trigger tr_ingreso_libros
+ before insert
+ on libros
+ begin
+   insert into control values(user,sysdate);
+ end tr_ingreso_libros;  
+ 
+ 
+ -- insertamos los registros y tambien se insertara la tabla de control
+ 
+ insert into libros values(100,'Uno','Richard bach','Planeta',25);
+ 
+ 
+ -- Consultamos la tabla ee control
+ 
+ select * from  control;
+ 
+ -- consultar los triger creados
+ 
+ select * from USER_TRIGGERS WHERE TRIGGER_NAME = 'TR_INGRESO_LIBROS'
+
+
